@@ -71,11 +71,13 @@
   <ItemGroup>
     <Content Include="brands.aspx" />
     <Content Include="editbrand.aspx" />
+    <Content Include="editrental.aspx" />
     <Content Include="editrenters.aspx" />
     <Content Include="edittool.aspx" />
     <Content Include="index.aspx" />
     <Content Include="login.aspx" />
     <Content Include="newstaff.aspx" />
+    <Content Include="rentals.aspx" />
     <Content Include="renters.aspx" />
     <Content Include="tools.aspx" />
     <Content Include="Web References\Service\Brands.datasource">
@@ -114,6 +116,13 @@
     </Compile>
     <Compile Include="editbrand.aspx.designer.cs">
       <DependentUpon>editbrand.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="editrental.aspx.cs">
+      <DependentUpon>editrental.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="editrental.aspx.designer.cs">
+      <DependentUpon>editrental.aspx</DependentUpon>
     </Compile>
     <Compile Include="editrenters.aspx.cs">
       <DependentUpon>editrenters.aspx</DependentUpon>
@@ -162,6 +171,13 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="rentals.aspx.cs">
+      <DependentUpon>rentals.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="rentals.aspx.designer.cs">
+      <DependentUpon>rentals.aspx</DependentUpon>
     </Compile>
     <Compile Include="renters.aspx.cs">
       <DependentUpon>renters.aspx</DependentUpon>
