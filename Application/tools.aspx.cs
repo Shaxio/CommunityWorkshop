@@ -70,14 +70,14 @@ namespace Application
 
         protected void btnActiveByBrand_Click(object sender, EventArgs e)
         {
-            var data = Service.getActiveByBrand(Convert.ToInt32(ddlBrand.SelectedValue));
+            var data = Service.getActiveByBrand(Convert.ToInt32(ddlBrands.SelectedValue));
             grdToolData.DataSource = data;
             grdToolData.DataBind();
         }
 
         protected void btnInactiveByBrand_Click(object sender, EventArgs e)
         {
-            var data = Service.getInActiveByBrand(Convert.ToInt32(ddlBrand.SelectedValue));
+            var data = Service.getInActiveByBrand(Convert.ToInt32(ddlBrands.SelectedValue));
             grdToolData.DataSource = data;
             grdToolData.DataBind();
         }

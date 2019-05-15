@@ -40,7 +40,8 @@ namespace Application
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-
+            service.editRental(Convert.ToInt32(Request.QueryString["id"]), Convert.ToInt32(ddlTools.SelectedValue), Convert.ToInt32(ddlUser.SelectedValue), txtRented.Text, txtReturned.Text);
+            Response.Redirect("rentals.aspx");
         }
     }
 }
