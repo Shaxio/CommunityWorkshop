@@ -12,18 +12,21 @@ namespace Application
         Service.Service service = new Service.Service();
         protected void Page_Load(object sender, EventArgs e)
         {
-            var ddlData = service.getAllBrands();
             if (!IsPostBack)
             {
+                var ddlData = service.getAllBrands();
                 ddlBrands.DataSource = ddlData;
                 ddlBrands.DataTextField = "Brand";
                 ddlBrands.DataValueField = "BrandID";
+                ddlBrands.DataBind();
+
                 var data = service.getToolByID(Convert.ToInt32(Request.QueryString["id"]));
                 //if data is returned
                 if (data.Length > 0)
                 {
                     lblID.Text = "Editing ID: " + data[0].ToolID;
                     ddlBrands.SelectedValue = data[0].BrandID.ToString();
+                    txtName.Text = data[0].ToolName;
                     txtDescription.Text = data[0].ToolDescription;
                     chkActive.Checked = data[0].Active;
                 }
