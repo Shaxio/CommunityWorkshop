@@ -29,7 +29,7 @@ namespace Application
                 if (data.Length > 0)
                 {
                     //sets fields on the page to the result of data
-                    lblID.Text = "Editing entry: " + data[0].RentalID;
+                    lblID.Text = "Editing ID: " + data[0].RentalID;
                     ddlTools.SelectedValue = data[0].ToolID.ToString();
                     ddlUser.SelectedValue = data[0].UserID.ToString();
                     txtRented.Text = data[0].RentalDate.ToString("yyyy-MM-dd hh:mm:ss");

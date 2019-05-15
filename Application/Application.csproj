@@ -71,6 +71,7 @@
   <ItemGroup>
     <Content Include="brands.aspx" />
     <Content Include="editbrand.aspx" />
+    <Content Include="editcomment.aspx" />
     <Content Include="editrental.aspx" />
     <Content Include="editrenters.aspx" />
     <Content Include="edittool.aspx" />
@@ -117,6 +118,13 @@
     </Compile>
     <Compile Include="editbrand.aspx.designer.cs">
       <DependentUpon>editbrand.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="editcomment.aspx.cs">
+      <DependentUpon>editcomment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="editcomment.aspx.designer.cs">
+      <DependentUpon>editcomment.aspx</DependentUpon>
     </Compile>
     <Compile Include="editrental.aspx.cs">
       <DependentUpon>editrental.aspx</DependentUpon>
