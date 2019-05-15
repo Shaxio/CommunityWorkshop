@@ -44,7 +44,7 @@
                     <asp:Label runat="server" Text="Tool ID for editing: " />
                     <br />
                     <asp:TextBox runat="server" ID="txtToolIDEdit" TextMode="Number" Width="5em" />
-                    <asp:Button runat="server" ID="btnEditTool" Text="Edit Tool" OnClick="btnEditTool_Click" />
+                    <asp:Button runat="server" ID="btnEditTool" Text="Edit Comment" OnClick="btnEditTool_Click" />
                     <br />
                     <asp:Label runat="server" Text="Save Report based on data in the table" />
                     <asp:Button runat="server" ID="btnSaveToolReport" Text="Save Report" OnClick="btnSaveToolReport_Click" />
