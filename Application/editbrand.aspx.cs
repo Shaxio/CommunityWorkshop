@@ -18,7 +18,7 @@ namespace Application
                 //if data is returned
                 if (data.Length > 0)
                 {
-                    lblID.Text = "Editing entry: " + data[0].BrandID;
+                    lblID.Text = "Editing ID: " + data[0].BrandID;
                     txtBrandName.Text = data[0].Brand;
                 }
             }
