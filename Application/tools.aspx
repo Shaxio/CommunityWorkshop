@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-2" style="background-color: lightslategrey; height: 40em; border: solid; text-align: center;">
+            <div class="col-md-2" style="background-color: lightslategrey; height: 41em; border: solid; text-align: center;">
                 <div>
                     <div style="margin-top:0.3em">
                         <asp:Button runat="server" ID="queryAllTools" Text="all tools" OnClick="queryAllTools_Click" Width="15em" />
@@ -25,7 +25,7 @@
                         <asp:Button runat="server" ID="btnActiveByBrand" Text="Active tools by Brand" OnClick="btnActiveByBrand_Click" Width="15em" />
                         <asp:Button runat="server" ID="btnInactiveByBrand" Text="Inactive Tools by Brand" OnClick="btnInactiveByBrand_Click" Width="15em" />
                     </div>
-                    <div style="background-color: dimgrey; border: solid; border-width: 1px; width: 17.5em; padding-bottom: 0.5em; margin-top: 1em; text-align: center; height: 14.1em;">
+                    <div style="background-color: dimgrey; border: solid; border-width: 1px; width: 17.5em; padding-bottom: 0.5em; margin-top: 1em; text-align: center; height: 15em;">
                         <asp:Label runat="server" Text="Add New Tool Brand: " />
                         <asp:DropDownList runat="server" ID="ddlBrand" Width="15em" />
                         <br />
@@ -43,7 +43,7 @@
                 <div style="background-color: lightseagreen; height: 7em; border: solid; border-width: 1px; width: 17.5em; margin-top: 1em;">
                     <asp:Label runat="server" Text="Tool ID for editing: " />
                     <br />
-                    <asp:TextBox runat="server" ID="txtToolIDEdit" Width="5em" />
+                    <asp:TextBox runat="server" ID="txtToolIDEdit" TextMode="Number" Width="5em" />
                     <asp:Button runat="server" ID="btnEditTool" Text="Edit Tool" OnClick="btnEditTool_Click" />
                     <br />
                     <asp:Label runat="server" Text="Save Report based on data in the table" />
