@@ -34,8 +34,8 @@ namespace Application
             grdToolData.DataBind();
 
             var gvCData = Service.getAllComments();
-            //grdCommentData.DataSource = gvCData;
-            //grdCommentData.Databind();
+            grdCommentData.DataSource = gvCData;
+            grdCommentData.DataBind();
 
         }
 
@@ -131,6 +131,68 @@ namespace Application
                 }
             }
             //sends the file to the client
+            Response.ContentType = "Application/csv";
+            Response.AppendHeader("content-disposition", "attachment; filename=Report.csv");
+            Response.TransmitFile(path);
+            Response.End();
+        }
+
+        protected void btnAllComments_Click(object sender, EventArgs e)
+        {
+            var data = Service.getAllComments();
+            grdCommentData.DataSource = data;
+            grdCommentData.DataBind();
+        }
+
+        protected void btnCommentByTool_Click(object sender, EventArgs e)
+        {
+            var data = Service.getCommentsByTool(Convert.ToInt32(txtSearchToolID.Text));
+            grdCommentData.DataSource = data;
+            grdCommentData.DataBind();
+        }
+
+        protected void btnAddComment_Click(object sender, EventArgs e)
+        {
+            var success = Service.newComment(Convert.ToInt32(txtToolID.Text), txtComment.Text);
+            var data = Service.getAllComments();
+            grdCommentData.DataSource = data;
+            grdCommentData.DataBind();
+        }
+
+        protected void btnEditComment_Click(object sender, EventArgs e)
+        {
+            Response.Redirect($"editcomment.aspx?id={txtCommentIDEdit.Text}");
+
+        }
+
+        protected void btnSaveCommentReport_Click(object sender, EventArgs e)
+        {
+            string path = MapPath("Report.csv");
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
+            foreach (GridViewRow row in grdCommentData.Rows)
+            {
+                int i = 0;
+                string data = "";
+                try
+                {
+                    while (row.Cells[i].Text != null)
+                    {
+                        data = data + "\"" + row.Cells[i].Text + "\"" + ",";
+                        i++;
+                    }
+                }
+                catch
+                {
+                    data = data.Remove(data.Length - 1);
+                    using (var tw = new StreamWriter(path, true))
+                    {
+                        tw.WriteLine(data);
+                    }
+                }
+            }
             Response.ContentType = "Application/csv";
             Response.AppendHeader("content-disposition", "attachment; filename=Report.csv");
             Response.TransmitFile(path);
