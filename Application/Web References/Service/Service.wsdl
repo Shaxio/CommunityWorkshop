@@ -1,0 +1,1373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="getCheckedOut">
+        <s:complexType />
+      </s:element>
+      <s:element name="getCheckedOutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCheckedOutResult" type="tns:ArrayOfRentedTools" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfRentedTools">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RentedTools" nillable="true" type="tns:RentedTools" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RentedTools">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ToolID" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Brand" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RentalDate" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getActive">
+        <s:complexType />
+      </s:element>
+      <s:element name="getActiveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getActiveResult" type="tns:ArrayOfTools" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTools">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Tools" nillable="true" type="tns:Tools" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Tools">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ToolID" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="ToolName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ToolDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Active" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="BrandID" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Brand" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getActiveByBrand">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="brand" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getActiveByBrandResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getActiveByBrandResult" type="tns:ArrayOfTools" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getInActive">
+        <s:complexType />
+      </s:element>
+      <s:element name="getInActiveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getInActiveResult" type="tns:ArrayOfTools" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getInActiveByBrand">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="brand" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getInActiveByBrandResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getInActiveByBrandResult" type="tns:ArrayOfTools" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getRentalByTool">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ToolID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getRentalByToolResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getRentalByToolResult" type="tns:ArrayOfRentals" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfRentals">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Rentals" nillable="true" type="tns:Rentals" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Rentals">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="RentalID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ToolID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="UsersName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RentalDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="RentalReturned" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ToolName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ToolDescription" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getRentalByUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getRentalByUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getRentalByUserResult" type="tns:ArrayOfRentals" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getBrandByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="brandID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getBrandByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getBrandByIDResult" type="tns:ArrayOfBrands" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBrands">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Brands" nillable="true" type="tns:Brands" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Brands">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BrandID" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Brand" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getToolByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getToolByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getToolByIDResult" type="tns:ArrayOfTools" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCommentByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCommentByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCommentByIDResult" type="tns:ArrayOfComments" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfComments">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Comments" nillable="true" type="tns:Comments" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Comments">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CommentID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ToolID" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comment" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getUserByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUserByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getUserByIDResult" type="tns:ArrayOfUsers" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfUsers">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Users" nillable="true" type="tns:Users" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Users">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="RentersName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getRentalByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getRentalByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getRentalByIDResult" type="tns:ArrayOfRentals" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCommentsByTool">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ToolID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCommentsByToolResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCommentsByToolResult" type="tns:ArrayOfComments" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAllBrands">
+        <s:complexType />
+      </s:element>
+      <s:element name="getAllBrandsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAllBrandsResult" type="tns:ArrayOfBrands" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAllRentals">
+        <s:complexType />
+      </s:element>
+      <s:element name="getAllRentalsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAllRentalsResult" type="tns:ArrayOfRentals" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAllTools">
+        <s:complexType />
+      </s:element>
+      <s:element name="getAllToolsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAllToolsResult" type="tns:ArrayOfTools" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAllComments">
+        <s:complexType />
+      </s:element>
+      <s:element name="getAllCommentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAllCommentsResult" type="tns:ArrayOfComments" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAllUsers">
+        <s:complexType />
+      </s:element>
+      <s:element name="getAllUsersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAllUsersResult" type="tns:ArrayOfUsers" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="createStaffMember">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="createStaffMemberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="createStaffMemberResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="loginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="loginResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="newBrand">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="newBrandResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="newBrandResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="newTool">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="brandID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="toolname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tooldescription" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="active" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="newToolResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="newToolResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="newComment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ToolID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Comment" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="newCommentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="newCommentResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="newRenter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="newRenterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="newRenterResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="newRental">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="toolID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="userID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="rentaldate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="newRentalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="newRentalResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="returnRental">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="rentalID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="datetime" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="returnRentalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="returnRentalResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="editBrand">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="editBrandResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="editTool">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="brandid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="toolname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tooldescription" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="active" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="editToolResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="editComment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="toolid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="comment" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="editCommentResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="editRenter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="editRenterResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="editRental">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="toolid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="userid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="rentaldate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="rentalreturn" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="editRentalResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getCheckedOutSoapIn">
+    <wsdl:part name="parameters" element="tns:getCheckedOut" />
+  </wsdl:message>
+  <wsdl:message name="getCheckedOutSoapOut">
+    <wsdl:part name="parameters" element="tns:getCheckedOutResponse" />
+  </wsdl:message>
+  <wsdl:message name="getActiveSoapIn">
+    <wsdl:part name="parameters" element="tns:getActive" />
+  </wsdl:message>
+  <wsdl:message name="getActiveSoapOut">
+    <wsdl:part name="parameters" element="tns:getActiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="getActiveByBrandSoapIn">
+    <wsdl:part name="parameters" element="tns:getActiveByBrand" />
+  </wsdl:message>
+  <wsdl:message name="getActiveByBrandSoapOut">
+    <wsdl:part name="parameters" element="tns:getActiveByBrandResponse" />
+  </wsdl:message>
+  <wsdl:message name="getInActiveSoapIn">
+    <wsdl:part name="parameters" element="tns:getInActive" />
+  </wsdl:message>
+  <wsdl:message name="getInActiveSoapOut">
+    <wsdl:part name="parameters" element="tns:getInActiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="getInActiveByBrandSoapIn">
+    <wsdl:part name="parameters" element="tns:getInActiveByBrand" />
+  </wsdl:message>
+  <wsdl:message name="getInActiveByBrandSoapOut">
+    <wsdl:part name="parameters" element="tns:getInActiveByBrandResponse" />
+  </wsdl:message>
+  <wsdl:message name="getRentalByToolSoapIn">
+    <wsdl:part name="parameters" element="tns:getRentalByTool" />
+  </wsdl:message>
+  <wsdl:message name="getRentalByToolSoapOut">
+    <wsdl:part name="parameters" element="tns:getRentalByToolResponse" />
+  </wsdl:message>
+  <wsdl:message name="getRentalByUserSoapIn">
+    <wsdl:part name="parameters" element="tns:getRentalByUser" />
+  </wsdl:message>
+  <wsdl:message name="getRentalByUserSoapOut">
+    <wsdl:part name="parameters" element="tns:getRentalByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="getBrandByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:getBrandByID" />
+  </wsdl:message>
+  <wsdl:message name="getBrandByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:getBrandByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="getToolByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:getToolByID" />
+  </wsdl:message>
+  <wsdl:message name="getToolByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:getToolByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCommentByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:getCommentByID" />
+  </wsdl:message>
+  <wsdl:message name="getCommentByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:getCommentByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUserByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:getUserByID" />
+  </wsdl:message>
+  <wsdl:message name="getUserByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:getUserByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="getRentalByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:getRentalByID" />
+  </wsdl:message>
+  <wsdl:message name="getRentalByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:getRentalByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCommentsByToolSoapIn">
+    <wsdl:part name="parameters" element="tns:getCommentsByTool" />
+  </wsdl:message>
+  <wsdl:message name="getCommentsByToolSoapOut">
+    <wsdl:part name="parameters" element="tns:getCommentsByToolResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAllBrandsSoapIn">
+    <wsdl:part name="parameters" element="tns:getAllBrands" />
+  </wsdl:message>
+  <wsdl:message name="getAllBrandsSoapOut">
+    <wsdl:part name="parameters" element="tns:getAllBrandsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAllRentalsSoapIn">
+    <wsdl:part name="parameters" element="tns:getAllRentals" />
+  </wsdl:message>
+  <wsdl:message name="getAllRentalsSoapOut">
+    <wsdl:part name="parameters" element="tns:getAllRentalsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAllToolsSoapIn">
+    <wsdl:part name="parameters" element="tns:getAllTools" />
+  </wsdl:message>
+  <wsdl:message name="getAllToolsSoapOut">
+    <wsdl:part name="parameters" element="tns:getAllToolsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAllCommentsSoapIn">
+    <wsdl:part name="parameters" element="tns:getAllComments" />
+  </wsdl:message>
+  <wsdl:message name="getAllCommentsSoapOut">
+    <wsdl:part name="parameters" element="tns:getAllCommentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAllUsersSoapIn">
+    <wsdl:part name="parameters" element="tns:getAllUsers" />
+  </wsdl:message>
+  <wsdl:message name="getAllUsersSoapOut">
+    <wsdl:part name="parameters" element="tns:getAllUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="createStaffMemberSoapIn">
+    <wsdl:part name="parameters" element="tns:createStaffMember" />
+  </wsdl:message>
+  <wsdl:message name="createStaffMemberSoapOut">
+    <wsdl:part name="parameters" element="tns:createStaffMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="loginSoapIn">
+    <wsdl:part name="parameters" element="tns:login" />
+  </wsdl:message>
+  <wsdl:message name="loginSoapOut">
+    <wsdl:part name="parameters" element="tns:loginResponse" />
+  </wsdl:message>
+  <wsdl:message name="newBrandSoapIn">
+    <wsdl:part name="parameters" element="tns:newBrand" />
+  </wsdl:message>
+  <wsdl:message name="newBrandSoapOut">
+    <wsdl:part name="parameters" element="tns:newBrandResponse" />
+  </wsdl:message>
+  <wsdl:message name="newToolSoapIn">
+    <wsdl:part name="parameters" element="tns:newTool" />
+  </wsdl:message>
+  <wsdl:message name="newToolSoapOut">
+    <wsdl:part name="parameters" element="tns:newToolResponse" />
+  </wsdl:message>
+  <wsdl:message name="newCommentSoapIn">
+    <wsdl:part name="parameters" element="tns:newComment" />
+  </wsdl:message>
+  <wsdl:message name="newCommentSoapOut">
+    <wsdl:part name="parameters" element="tns:newCommentResponse" />
+  </wsdl:message>
+  <wsdl:message name="newRenterSoapIn">
+    <wsdl:part name="parameters" element="tns:newRenter" />
+  </wsdl:message>
+  <wsdl:message name="newRenterSoapOut">
+    <wsdl:part name="parameters" element="tns:newRenterResponse" />
+  </wsdl:message>
+  <wsdl:message name="newRentalSoapIn">
+    <wsdl:part name="parameters" element="tns:newRental" />
+  </wsdl:message>
+  <wsdl:message name="newRentalSoapOut">
+    <wsdl:part name="parameters" element="tns:newRentalResponse" />
+  </wsdl:message>
+  <wsdl:message name="returnRentalSoapIn">
+    <wsdl:part name="parameters" element="tns:returnRental" />
+  </wsdl:message>
+  <wsdl:message name="returnRentalSoapOut">
+    <wsdl:part name="parameters" element="tns:returnRentalResponse" />
+  </wsdl:message>
+  <wsdl:message name="editBrandSoapIn">
+    <wsdl:part name="parameters" element="tns:editBrand" />
+  </wsdl:message>
+  <wsdl:message name="editBrandSoapOut">
+    <wsdl:part name="parameters" element="tns:editBrandResponse" />
+  </wsdl:message>
+  <wsdl:message name="editToolSoapIn">
+    <wsdl:part name="parameters" element="tns:editTool" />
+  </wsdl:message>
+  <wsdl:message name="editToolSoapOut">
+    <wsdl:part name="parameters" element="tns:editToolResponse" />
+  </wsdl:message>
+  <wsdl:message name="editCommentSoapIn">
+    <wsdl:part name="parameters" element="tns:editComment" />
+  </wsdl:message>
+  <wsdl:message name="editCommentSoapOut">
+    <wsdl:part name="parameters" element="tns:editCommentResponse" />
+  </wsdl:message>
+  <wsdl:message name="editRenterSoapIn">
+    <wsdl:part name="parameters" element="tns:editRenter" />
+  </wsdl:message>
+  <wsdl:message name="editRenterSoapOut">
+    <wsdl:part name="parameters" element="tns:editRenterResponse" />
+  </wsdl:message>
+  <wsdl:message name="editRentalSoapIn">
+    <wsdl:part name="parameters" element="tns:editRental" />
+  </wsdl:message>
+  <wsdl:message name="editRentalSoapOut">
+    <wsdl:part name="parameters" element="tns:editRentalResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="getCheckedOut">
+      <wsdl:input message="tns:getCheckedOutSoapIn" />
+      <wsdl:output message="tns:getCheckedOutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getActive">
+      <wsdl:input message="tns:getActiveSoapIn" />
+      <wsdl:output message="tns:getActiveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getActiveByBrand">
+      <wsdl:input message="tns:getActiveByBrandSoapIn" />
+      <wsdl:output message="tns:getActiveByBrandSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getInActive">
+      <wsdl:input message="tns:getInActiveSoapIn" />
+      <wsdl:output message="tns:getInActiveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getInActiveByBrand">
+      <wsdl:input message="tns:getInActiveByBrandSoapIn" />
+      <wsdl:output message="tns:getInActiveByBrandSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getRentalByTool">
+      <wsdl:input message="tns:getRentalByToolSoapIn" />
+      <wsdl:output message="tns:getRentalByToolSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getRentalByUser">
+      <wsdl:input message="tns:getRentalByUserSoapIn" />
+      <wsdl:output message="tns:getRentalByUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getBrandByID">
+      <wsdl:input message="tns:getBrandByIDSoapIn" />
+      <wsdl:output message="tns:getBrandByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getToolByID">
+      <wsdl:input message="tns:getToolByIDSoapIn" />
+      <wsdl:output message="tns:getToolByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCommentByID">
+      <wsdl:input message="tns:getCommentByIDSoapIn" />
+      <wsdl:output message="tns:getCommentByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserByID">
+      <wsdl:input message="tns:getUserByIDSoapIn" />
+      <wsdl:output message="tns:getUserByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getRentalByID">
+      <wsdl:input message="tns:getRentalByIDSoapIn" />
+      <wsdl:output message="tns:getRentalByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCommentsByTool">
+      <wsdl:input message="tns:getCommentsByToolSoapIn" />
+      <wsdl:output message="tns:getCommentsByToolSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllBrands">
+      <wsdl:input message="tns:getAllBrandsSoapIn" />
+      <wsdl:output message="tns:getAllBrandsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllRentals">
+      <wsdl:input message="tns:getAllRentalsSoapIn" />
+      <wsdl:output message="tns:getAllRentalsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllTools">
+      <wsdl:input message="tns:getAllToolsSoapIn" />
+      <wsdl:output message="tns:getAllToolsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllComments">
+      <wsdl:input message="tns:getAllCommentsSoapIn" />
+      <wsdl:output message="tns:getAllCommentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllUsers">
+      <wsdl:input message="tns:getAllUsersSoapIn" />
+      <wsdl:output message="tns:getAllUsersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="createStaffMember">
+      <wsdl:input message="tns:createStaffMemberSoapIn" />
+      <wsdl:output message="tns:createStaffMemberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <wsdl:input message="tns:loginSoapIn" />
+      <wsdl:output message="tns:loginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="newBrand">
+      <wsdl:input message="tns:newBrandSoapIn" />
+      <wsdl:output message="tns:newBrandSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="newTool">
+      <wsdl:input message="tns:newToolSoapIn" />
+      <wsdl:output message="tns:newToolSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="newComment">
+      <wsdl:input message="tns:newCommentSoapIn" />
+      <wsdl:output message="tns:newCommentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="newRenter">
+      <wsdl:input message="tns:newRenterSoapIn" />
+      <wsdl:output message="tns:newRenterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="newRental">
+      <wsdl:input message="tns:newRentalSoapIn" />
+      <wsdl:output message="tns:newRentalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="returnRental">
+      <wsdl:input message="tns:returnRentalSoapIn" />
+      <wsdl:output message="tns:returnRentalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="editBrand">
+      <wsdl:input message="tns:editBrandSoapIn" />
+      <wsdl:output message="tns:editBrandSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="editTool">
+      <wsdl:input message="tns:editToolSoapIn" />
+      <wsdl:output message="tns:editToolSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="editComment">
+      <wsdl:input message="tns:editCommentSoapIn" />
+      <wsdl:output message="tns:editCommentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="editRenter">
+      <wsdl:input message="tns:editRenterSoapIn" />
+      <wsdl:output message="tns:editRenterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="editRental">
+      <wsdl:input message="tns:editRentalSoapIn" />
+      <wsdl:output message="tns:editRentalSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getCheckedOut">
+      <soap:operation soapAction="http://tempuri.org/getCheckedOut" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getActive">
+      <soap:operation soapAction="http://tempuri.org/getActive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getActiveByBrand">
+      <soap:operation soapAction="http://tempuri.org/getActiveByBrand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInActive">
+      <soap:operation soapAction="http://tempuri.org/getInActive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInActiveByBrand">
+      <soap:operation soapAction="http://tempuri.org/getInActiveByBrand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRentalByTool">
+      <soap:operation soapAction="http://tempuri.org/getRentalByTool" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRentalByUser">
+      <soap:operation soapAction="http://tempuri.org/getRentalByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBrandByID">
+      <soap:operation soapAction="http://tempuri.org/getBrandByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getToolByID">
+      <soap:operation soapAction="http://tempuri.org/getToolByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCommentByID">
+      <soap:operation soapAction="http://tempuri.org/getCommentByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserByID">
+      <soap:operation soapAction="http://tempuri.org/getUserByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRentalByID">
+      <soap:operation soapAction="http://tempuri.org/getRentalByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCommentsByTool">
+      <soap:operation soapAction="http://tempuri.org/getCommentsByTool" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllBrands">
+      <soap:operation soapAction="http://tempuri.org/getAllBrands" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllRentals">
+      <soap:operation soapAction="http://tempuri.org/getAllRentals" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllTools">
+      <soap:operation soapAction="http://tempuri.org/getAllTools" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllComments">
+      <soap:operation soapAction="http://tempuri.org/getAllComments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllUsers">
+      <soap:operation soapAction="http://tempuri.org/getAllUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createStaffMember">
+      <soap:operation soapAction="http://tempuri.org/createStaffMember" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <soap:operation soapAction="http://tempuri.org/login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="newBrand">
+      <soap:operation soapAction="http://tempuri.org/newBrand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="newTool">
+      <soap:operation soapAction="http://tempuri.org/newTool" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="newComment">
+      <soap:operation soapAction="http://tempuri.org/newComment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="newRenter">
+      <soap:operation soapAction="http://tempuri.org/newRenter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="newRental">
+      <soap:operation soapAction="http://tempuri.org/newRental" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="returnRental">
+      <soap:operation soapAction="http://tempuri.org/returnRental" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editBrand">
+      <soap:operation soapAction="http://tempuri.org/editBrand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editTool">
+      <soap:operation soapAction="http://tempuri.org/editTool" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editComment">
+      <soap:operation soapAction="http://tempuri.org/editComment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editRenter">
+      <soap:operation soapAction="http://tempuri.org/editRenter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editRental">
+      <soap:operation soapAction="http://tempuri.org/editRental" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getCheckedOut">
+      <soap12:operation soapAction="http://tempuri.org/getCheckedOut" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getActive">
+      <soap12:operation soapAction="http://tempuri.org/getActive" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getActiveByBrand">
+      <soap12:operation soapAction="http://tempuri.org/getActiveByBrand" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInActive">
+      <soap12:operation soapAction="http://tempuri.org/getInActive" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInActiveByBrand">
+      <soap12:operation soapAction="http://tempuri.org/getInActiveByBrand" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRentalByTool">
+      <soap12:operation soapAction="http://tempuri.org/getRentalByTool" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRentalByUser">
+      <soap12:operation soapAction="http://tempuri.org/getRentalByUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBrandByID">
+      <soap12:operation soapAction="http://tempuri.org/getBrandByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getToolByID">
+      <soap12:operation soapAction="http://tempuri.org/getToolByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCommentByID">
+      <soap12:operation soapAction="http://tempuri.org/getCommentByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserByID">
+      <soap12:operation soapAction="http://tempuri.org/getUserByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRentalByID">
+      <soap12:operation soapAction="http://tempuri.org/getRentalByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCommentsByTool">
+      <soap12:operation soapAction="http://tempuri.org/getCommentsByTool" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllBrands">
+      <soap12:operation soapAction="http://tempuri.org/getAllBrands" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllRentals">
+      <soap12:operation soapAction="http://tempuri.org/getAllRentals" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllTools">
+      <soap12:operation soapAction="http://tempuri.org/getAllTools" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllComments">
+      <soap12:operation soapAction="http://tempuri.org/getAllComments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllUsers">
+      <soap12:operation soapAction="http://tempuri.org/getAllUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createStaffMember">
+      <soap12:operation soapAction="http://tempuri.org/createStaffMember" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <soap12:operation soapAction="http://tempuri.org/login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="newBrand">
+      <soap12:operation soapAction="http://tempuri.org/newBrand" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="newTool">
+      <soap12:operation soapAction="http://tempuri.org/newTool" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="newComment">
+      <soap12:operation soapAction="http://tempuri.org/newComment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="newRenter">
+      <soap12:operation soapAction="http://tempuri.org/newRenter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="newRental">
+      <soap12:operation soapAction="http://tempuri.org/newRental" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="returnRental">
+      <soap12:operation soapAction="http://tempuri.org/returnRental" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editBrand">
+      <soap12:operation soapAction="http://tempuri.org/editBrand" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editTool">
+      <soap12:operation soapAction="http://tempuri.org/editTool" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editComment">
+      <soap12:operation soapAction="http://tempuri.org/editComment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editRenter">
+      <soap12:operation soapAction="http://tempuri.org/editRenter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editRental">
+      <soap12:operation soapAction="http://tempuri.org/editRental" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://toolsservice20192.azurewebsites.net/service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://toolsservice20192.azurewebsites.net/service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
