@@ -187,9 +187,9 @@ namespace Application
                 catch
                 {
                     data = data.Remove(data.Length - 1);
-                    using (var tw = new StreamWriter(path, true))
+                    using (var write = new StreamWriter(path, true))
                     {
-                        tw.WriteLine(data);
+                        write.WriteLine(data);
                     }
                 }
             }
