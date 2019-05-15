@@ -93,12 +93,49 @@ namespace Application
 
         protected void btnEditTool_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect($"edittool.aspx?id={txtToolIDEdit.Text}");
         }
 
         protected void btnSaveToolReport_Click(object sender, EventArgs e)
         {
-
+            //register the path of the server side csv
+            string path = MapPath("Report.csv");
+            //If the file already exists yeet it
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
+            foreach (GridViewRow row in grdToolData.Rows)
+            {
+                int i = 0;
+                string data = "";
+                try
+                {
+                    //loops each cell that is not null
+                    while (row.Cells[i].Text != null)
+                    {
+                        //sets the data from the cells into the string data seperated by ,
+                        data = data + "\"" + row.Cells[i].Text + "\"" + ",";
+                        i++;
+                    }
+                }
+                //if there is no data in the cell
+                catch
+                {
+                    //removes the last comma from the data string
+                    data = data.Remove(data.Length - 1);
+                    //writes the data to the csv
+                    using (var write = new StreamWriter(path, true))
+                    {
+                        write.WriteLine(data);
+                    }
+                }
+            }
+            //sends the file to the client
+            Response.ContentType = "Application/csv";
+            Response.AppendHeader("content-disposition", "attachment; filename=Report.csv");
+            Response.TransmitFile(path);
+            Response.End();
         }
     }
 }
