@@ -74,6 +74,7 @@
     <Content Include="editrental.aspx" />
     <Content Include="editrenters.aspx" />
     <Content Include="edittool.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="index.aspx" />
     <Content Include="login.aspx" />
     <Content Include="newstaff.aspx" />
@@ -137,6 +138,9 @@
     </Compile>
     <Compile Include="edittool.aspx.designer.cs">
       <DependentUpon>edittool.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -227,10 +231,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://toolsservice20192.azurewebsites.net/service.asmx">
+    <WebReferenceUrl Include="https://toolsservice2019final.azurewebsites.net/service.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\Service\</RelPath>
-      <UpdateFromURL>http://toolsservice20192.azurewebsites.net/service.asmx</UpdateFromURL>
+      <UpdateFromURL>https://toolsservice2019final.azurewebsites.net/service.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>

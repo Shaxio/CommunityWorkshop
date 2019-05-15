@@ -13,10 +13,10 @@
             <div class="col-md-2" style="background-color: lightslategrey; height: 40em; border: solid; text-align: center;">
                 <div>
                     <div style="margin-top: 0.3em">
-                        <asp:Button runat="server" ID="btnLoadRentals" Text="Load Brands" OnClick="btnLoadRentals_Click" Width="15em" />
+                        <asp:Button runat="server" ID="btnLoadRentals" Text="Load Rentals" OnClick="btnLoadRentals_Click" Width="15em" />
                     </div>
                     <div style="border: solid; border-width: 1px; width: 17.5em; margin-top: 1em; padding-bottom: 0.5em; text-align: center;">
-                        <asp:Label runat="server" Text="Tool ID: " />
+                        <asp:Label runat="server" Text="Tool: " />
                         <br />
                         <asp:DropDownList runat="server" ID="ddlTool" Width="15em" />
                         <asp:Button runat="server" ID="btnSearchByToolID" Text="List Rentals by Tool" OnClick="btnSearchByToolID_Click" Width="15em" />
@@ -27,7 +27,7 @@
                         <asp:Button runat="server" ID="btnSearchUserName" Text="List Rentals by User" OnClick="btnSearchUserName_Click" Width="15em" />
                     </div>
                 </div>
-                <div style="background-color: dimgrey; border: solid; border-width: 1px; width: 17.5em; padding-bottom: 0.5em; margin-top: 1em; text-align: center; height: 15em;">
+                <div style="background-color: dimgrey; border: solid; border-width: 1px; width: 17.5em; padding-bottom: 0.5em; margin-top: 1em; text-align: center; height: 17em;">
                     <asp:Label runat="server" Text="Tool for rent: " />
                     <asp:DropDownList runat="server" ID="ddlTools" Width="15em" />
                     <br />

@@ -43,13 +43,14 @@ namespace Application
 
         protected void btnLoadRentals_Click(object sender, EventArgs e)
         {
-            var data = service.getAllRentals();
-            grdRenterData.DataSource = data;
-            grdRenterData.DataBind();
+              var data = service.getAllRentals();
+           
+             grdRenterData.DataSource = data;
+             grdRenterData.DataBind();
         }
 
         protected void btnSearchByToolID_Click(object sender, EventArgs e)
-        {
+        { 
             var data = service.getRentalByTool(Convert.ToInt32(ddlTool.SelectedValue));
             grdRenterData.DataSource = data;
             grdRenterData.DataBind();

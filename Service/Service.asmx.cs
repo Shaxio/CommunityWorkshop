@@ -243,7 +243,8 @@ namespace Service
         [WebMethod]
         public List<Rentals> getAllRentals()
         {
-            var query = "SELECT Rentals.*, Tools.ToolDescription, Users.RentersName FROM Rentals INNER JOIN Tools ON Tools.ToolID = Rentals.ToolID INNER JOIN Users ON Users.UserID = Rentals.UserID;";
+            var query = "SELECT Rentals.*, Tools.ToolName, Tools.ToolDescription, Users.RentersName FROM Rentals INNER JOIN Tools ON Tools.ToolID = Rentals.ToolID INNER JOIN Users ON Users.UserID = Rentals.UserID;";
+            //var query = "SELECT * FROM Rentals";
             return Model.Connection.GetConnection().Query<Rentals>(query).ToList();
         }
         /// <summary>

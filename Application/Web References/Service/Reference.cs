@@ -821,13 +821,13 @@ namespace Application.Service {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/newTool", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string newTool(int brandID, string toolname, string tooldescription, bool active) {
+        public bool newTool(int brandID, string toolname, string tooldescription, bool active) {
             object[] results = this.Invoke("newTool", new object[] {
                         brandID,
                         toolname,
                         tooldescription,
                         active});
-            return ((string)(results[0]));
+            return ((bool)(results[0]));
         }
         
         /// <remarks/>
@@ -1343,11 +1343,11 @@ namespace Application.Service {
         
         private long userIDField;
         
-        private string usersNameField;
+        private string rentersNameField;
         
         private System.DateTime rentalDateField;
         
-        private System.DateTime rentalReturnedField;
+        private System.DateTime rentalReturnField;
         
         private string toolNameField;
         
@@ -1384,12 +1384,12 @@ namespace Application.Service {
         }
         
         /// <remarks/>
-        public string UsersName {
+        public string RentersName {
             get {
-                return this.usersNameField;
+                return this.rentersNameField;
             }
             set {
-                this.usersNameField = value;
+                this.rentersNameField = value;
             }
         }
         
@@ -1404,12 +1404,12 @@ namespace Application.Service {
         }
         
         /// <remarks/>
-        public System.DateTime RentalReturned {
+        public System.DateTime RentalReturn {
             get {
-                return this.rentalReturnedField;
+                return this.rentalReturnField;
             }
             set {
-                this.rentalReturnedField = value;
+                this.rentalReturnField = value;
             }
         }
         
@@ -2079,10 +2079,10 @@ namespace Application.Service {
         }
         
         /// <remarks/>
-        public string Result {
+        public bool Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
+                return ((bool)(this.results[0]));
             }
         }
     }

@@ -112,9 +112,9 @@
           <s:element minOccurs="1" maxOccurs="1" name="RentalID" type="s:long" />
           <s:element minOccurs="1" maxOccurs="1" name="ToolID" type="s:long" />
           <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:long" />
-          <s:element minOccurs="0" maxOccurs="1" name="UsersName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RentersName" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="RentalDate" type="s:dateTime" />
-          <s:element minOccurs="1" maxOccurs="1" name="RentalReturned" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="RentalReturn" type="s:dateTime" />
           <s:element minOccurs="0" maxOccurs="1" name="ToolName" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="ToolDescription" type="s:string" />
         </s:sequence>
@@ -358,7 +358,7 @@
       <s:element name="newToolResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="newToolResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="newToolResult" type="s:boolean" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -1364,10 +1364,10 @@
   </wsdl:binding>
   <wsdl:service name="Service">
     <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
-      <soap:address location="http://toolsservice20192.azurewebsites.net/service.asmx" />
+      <soap:address location="https://toolsservice2019final.azurewebsites.net/service.asmx" />
     </wsdl:port>
     <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
-      <soap12:address location="http://toolsservice20192.azurewebsites.net/service.asmx" />
+      <soap12:address location="https://toolsservice2019final.azurewebsites.net/service.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

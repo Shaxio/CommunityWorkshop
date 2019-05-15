@@ -26,7 +26,7 @@ namespace Application.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://toolsservice20192.azurewebsites.net/service.asmx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://toolsservice2019final.azurewebsites.net/service.asmx")]
         public string Application_Service_Service {
             get {
                 return ((string)(this["Application_Service_Service"]));
