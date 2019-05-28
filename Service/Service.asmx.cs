@@ -10,6 +10,7 @@ using Dapper;
 
 namespace Service
 {
+    /// test comment
     /// <summary>
     /// Summary description for Service
     /// </summary>

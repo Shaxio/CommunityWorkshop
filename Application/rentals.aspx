@@ -37,7 +37,7 @@
                     <br />
                     <asp:Label runat="server" Font-Size="Smaller" Text="Date and time autofilled on button press" />
                     <div style="background-color: grey; border: solid; border-width: 1px; width: 17.5em; padding-bottom: 0.5em; margin-top: 1em; text-align: center;">
-                        <asp:Label runat="server" Text="Return a Tool with Rental ID: " />
+                        <asp:Label runat="server" Text="Return the Tool with Rental ID: " />
                         <asp:TextBox runat="server" ID="txtReturnID" TextMode="Number" />
                         <asp:Button runat="server" ID="btnRentalReturn" Text="Return Tool" OnClick="btnRentalReturn_Click" />
                         <br />
