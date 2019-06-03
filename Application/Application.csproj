@@ -76,11 +76,14 @@
     <Content Include="editrenters.aspx" />
     <Content Include="edittool.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="help.aspx" />
     <Content Include="index.aspx" />
     <Content Include="login.aspx" />
     <Content Include="newstaff.aspx" />
     <Content Include="rentals.aspx" />
     <Content Include="renters.aspx" />
+    <Content Include="Resources\Help\index.png" />
+    <Content Include="Resources\tools.jpg" />
     <Content Include="tools.aspx" />
     <Content Include="Web References\Service\Brands.datasource">
       <DependentUpon>Reference.map</DependentUpon>
@@ -149,6 +152,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="help.aspx.cs">
+      <DependentUpon>help.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="help.aspx.designer.cs">
+      <DependentUpon>help.aspx</DependentUpon>
     </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -251,6 +261,7 @@
       <CachedSettingsPropName>Application_Service_Service</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

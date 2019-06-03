@@ -6,7 +6,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col" style="background-color: darkgray; height: 4em;">
-                <h1>Rentals</h1>
+                <a class="gap">Rentals</a>
+                <div class="gap">
+                    <asp:Button runat="server" ID="btnHelp" Text="Help" OnClick="btnHelp_Click" />
+                </div>
             </div>
         </div>
         <div class="row">

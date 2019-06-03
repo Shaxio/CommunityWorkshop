@@ -72,5 +72,10 @@ namespace Application
             Response.TransmitFile(path);
             Response.End();
         }
+
+        protected void btnHelp_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("help.aspx?help=renters");
+        }
     }
 }

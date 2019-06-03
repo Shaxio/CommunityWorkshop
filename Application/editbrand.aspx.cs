@@ -14,12 +14,19 @@ namespace Application
         {
             if (!IsPostBack)
             {
-                var data = service.getBrandByID(Convert.ToInt32(Request.QueryString["id"]));
-                //if data is returned
-                if (data.Length > 0)
+                try
                 {
-                    lblID.Text = "Editing ID: " + data[0].BrandID;
-                    txtBrandName.Text = data[0].Brand;
+                    var data = service.getBrandByID(Convert.ToInt32(Request.QueryString["id"]));
+                    //if data is returned
+                    if (data.Length > 0)
+                    {
+                        lblID.Text = "Editing ID: " + data[0].BrandID;
+                        txtBrandName.Text = data[0].Brand;
+                    }
+                }
+                catch
+                {
+                    Response.Redirect("brands.aspx");
                 }
             }
         }

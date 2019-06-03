@@ -15,12 +15,19 @@ namespace Application
         {
             if (!IsPostBack)
             {
-                var data = service.getUserByID(Convert.ToInt32(Request.QueryString["id"]));
-                //if data is returned
-                if (data.Length > 0)
+                try
                 {
-                    lblID.Text = "Editing ID: " + data[0].UserID;
-                    txtUserName.Text = data[0].RentersName;
+                    var data = service.getUserByID(Convert.ToInt32(Request.QueryString["id"]));
+                    //if data is returned
+                    if (data.Length > 0)
+                    {
+                        lblID.Text = "Editing ID: " + data[0].UserID;
+                        txtUserName.Text = data[0].RentersName;
+                    }
+                }
+                catch
+                {
+                    Response.Redirect($"renters.aspx");
                 }
             }
         }

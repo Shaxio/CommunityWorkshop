@@ -15,12 +15,19 @@ namespace Application
         {
             if (!IsPostBack)
             {
-                var data = service.getCommentByID(Convert.ToInt32(Request.QueryString["id"]));
-                if (data.Length > 0)
+                try
                 {
-                    lblID.Text = "Editing ID: " + data[0].CommentID;
-                    txtToolID.Text = data[0].ToolID.ToString();
-                    txtComment.Text = data[0].Comment;
+                    var data = service.getCommentByID(Convert.ToInt32(Request.QueryString["id"]));
+                    if (data.Length > 0)
+                    {
+                        lblID.Text = "Editing ID: " + data[0].CommentID;
+                        txtToolID.Text = data[0].ToolID.ToString();
+                        txtComment.Text = data[0].Comment;
+                    }
+                }
+                catch
+                {
+                    Response.Redirect("tools.aspx");
                 }
             }
         }

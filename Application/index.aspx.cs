@@ -13,5 +13,11 @@ namespace Application
         {
 
         }
+
+        protected void btnHelp_Click(object sender, EventArgs e)
+        {
+            //a redirect to a help page
+            Response.Redirect("help.aspx?help=index");
+        }
     }
 }
