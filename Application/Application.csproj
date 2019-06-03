@@ -82,7 +82,10 @@
     <Content Include="newstaff.aspx" />
     <Content Include="rentals.aspx" />
     <Content Include="renters.aspx" />
+    <Content Include="Resources\Help\Brands.png" />
     <Content Include="Resources\Help\index.png" />
+    <Content Include="Resources\Help\Rentals.png" />
+    <Content Include="Resources\Help\Renters.png" />
     <Content Include="Resources\tools.jpg" />
     <Content Include="Resources\Help\tools.png" />
     <Content Include="tools.aspx" />

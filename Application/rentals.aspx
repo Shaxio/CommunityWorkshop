@@ -51,7 +51,7 @@
                     <asp:Label runat="server" Text="Rental ID for editing: " />
                     <br />
                     <asp:TextBox runat="server" ID="txtRentalIDEdit" TextMode="Number" Width="5em" />
-                    <asp:Button runat="server" ID="btnEditRental" Text="Edit Brand" OnClick="btnEditRental_Click" />
+                    <asp:Button runat="server" ID="btnEditRental" Text="Edit Rental" OnClick="btnEditRental_Click" />
                     <br />
                     <asp:Label runat="server" Text="Save Report based on data in the table" />
                     <asp:Button runat="server" ID="btnSaveRentalsReport" Text="Save Report" OnClick="btnSaveRentalsReport_Click" />
