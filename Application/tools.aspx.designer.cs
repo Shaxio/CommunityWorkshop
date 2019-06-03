@@ -175,13 +175,13 @@ namespace Application {
         protected global::System.Web.UI.WebControls.Button btnAllComments;
         
         /// <summary>
-        /// txtSearchToolID control.
+        /// ddlToolComments control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSearchToolID;
+        protected global::System.Web.UI.WebControls.DropDownList ddlToolComments;
         
         /// <summary>
         /// btnCommentByTool control.
@@ -193,13 +193,13 @@ namespace Application {
         protected global::System.Web.UI.WebControls.Button btnCommentByTool;
         
         /// <summary>
-        /// txtToolID control.
+        /// ddlToolsList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtToolID;
+        protected global::System.Web.UI.WebControls.DropDownList ddlToolsList;
         
         /// <summary>
         /// txtComment control.

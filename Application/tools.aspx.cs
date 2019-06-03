@@ -11,11 +11,25 @@ namespace Application
     public partial class tools : System.Web.UI.Page
     {
         Service.Service Service = new Service.Service();
+
+        public void LoadTools()
+        {
+            var ddlTools = Service.getAllTools();
+            ddlToolComments.DataSource = ddlTools;
+            ddlToolComments.DataTextField = "ToolName";
+            ddlToolComments.DataValueField = "ToolID";
+            ddlToolComments.DataBind();
+            ddlToolsList.DataSource = ddlTools;
+            ddlToolsList.DataTextField = "ToolName";
+            ddlToolsList.DataValueField = "ToolID";
+            ddlToolsList.DataBind();
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
 
             if (!IsPostBack)
             {
+                LoadTools();
                 //executes a query and returns the data
                 var ddlData = Service.getAllBrands();
                 //sets the data sources for all feilds on the page
@@ -27,6 +41,7 @@ namespace Application
                 ddlBrands.DataTextField = "Brand";
                 ddlBrands.DataValueField = "BrandID";
                 ddlBrands.DataBind();
+
             }
             var gvData = Service.getAllTools();
             //binds the data gained above into the grid table
@@ -88,6 +103,7 @@ namespace Application
             var data = Service.getAllTools();
             grdToolData.DataSource = data;
             grdToolData.DataBind();
+            LoadTools();
         }
 
         protected void btnEditTool_Click(object sender, EventArgs e)
@@ -146,14 +162,14 @@ namespace Application
 
         protected void btnCommentByTool_Click(object sender, EventArgs e)
         {
-            var data = Service.getCommentsByTool(Convert.ToInt32(txtSearchToolID.Text));
+            var data = Service.getCommentsByTool(Convert.ToInt32(ddlToolComments.SelectedValue));
             grdCommentData.DataSource = data;
             grdCommentData.DataBind();
         }
 
         protected void btnAddComment_Click(object sender, EventArgs e)
         {
-            var success = Service.newComment(Convert.ToInt32(txtToolID.Text), txtComment.Text);
+            var success = Service.newComment(Convert.ToInt32(ddlToolsList.SelectedValue), txtComment.Text);
             var data = Service.getAllComments();
             grdCommentData.DataSource = data;
             grdCommentData.DataBind();

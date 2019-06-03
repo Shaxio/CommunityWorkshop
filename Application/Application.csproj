@@ -84,6 +84,7 @@
     <Content Include="renters.aspx" />
     <Content Include="Resources\Help\index.png" />
     <Content Include="Resources\tools.jpg" />
+    <Content Include="Resources\Help\tools.png" />
     <Content Include="tools.aspx" />
     <Content Include="Web References\Service\Brands.datasource">
       <DependentUpon>Reference.map</DependentUpon>

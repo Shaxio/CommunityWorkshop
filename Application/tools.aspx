@@ -66,14 +66,14 @@
                         <asp:Button runat="server" ID="btnAllComments" Text="List all comments" OnClick="btnAllComments_Click" Width="15em" />
                     </div>
                     <div style="border: solid; border-width: 1px; width: 17.5em; margin-top: 1em; padding-bottom: 0.5em; text-align: center;">
-                        <asp:Label runat="server" Text="ToolID: " />
+                        <asp:Label runat="server" Text="Tool: " />
                         <br />
-                        <asp:TextBox runat="server" ID="txtSearchToolID" TextMode="Number" />
+                        <asp:DropDownList runat="server" ID="ddlToolComments" Width="15em"/>
                         <asp:Button runat="server" ID="btnCommentByTool" Text="Load Comments for Tool" OnClick="btnCommentByTool_Click" Width="15em" />
                     </div>
                     <div style="background-color: dimgrey; border: solid; border-width: 1px; width: 17.5em; padding-bottom: 0.5em; margin-top: 1em; text-align: center; height: 10em;">
-                        <asp:Label runat="server" Text="Tool ID: " />
-                        <asp:TextBox runat="server" ID="txtToolID" TextMode="Number" />
+                        <asp:Label runat="server" Text="Tool: " />
+                        <asp:DropDownList runat="server" ID="ddlToolsList" Width="15em" />
                         <br />
                         <asp:Label runat="server" Text="Comment: " />
                         <br />

@@ -35,8 +35,8 @@
                     <asp:Button runat="server" ID="btnSaveRenteeReport" Text="Save Report" OnClick="btnSaveRenteeReport_Click" />
                 </div>
             </div>
-            <div class="col-md-10" style="overflow: scroll;">
-                <div style="height: 40em; border: solid; border-width: 1px">
+            <div class="col-md-10" style="overflow:scroll;">
+                <div style=" border: solid; border-width: 1px">
                     <asp:GridView runat="server" ID="grdUserData" Width="100%" />
                 </div>
             </div>

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
+using System.Drawing;
 
 namespace Application
 {
@@ -75,11 +76,21 @@ namespace Application
 
         protected void btnRentalReturn_Click(object sender, EventArgs e)
         {
-            string datenow = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            var success = service.returnRental(Convert.ToInt32(txtReturnID.Text), datenow);
-            var data = service.getAllRentals();
-            grdRenterData.DataSource = data;
-            grdRenterData.DataBind();
+            try
+            {
+                string datenow = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                var success = service.returnRental(Convert.ToInt32(txtReturnID.Text), datenow);
+                var data = service.getAllRentals();
+                grdRenterData.DataSource = data;
+                grdRenterData.DataBind();
+                lblError.Text = "Date and time autofilled on button press";
+                lblError.ForeColor = Color.Black;
+            }
+            catch
+            {
+                lblError.Text="Error! Did you enter an ID?";
+                lblError.ForeColor = Color.Red;
+            }
         }
 
         protected void btnEditRental_Click(object sender, EventArgs e)
